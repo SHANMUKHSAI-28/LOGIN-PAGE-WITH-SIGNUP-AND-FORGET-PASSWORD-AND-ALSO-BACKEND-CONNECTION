@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Dashboard</h1>
+    <div id="user-info"></div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+        const auth = getAuth();
+
+        // Listen for changes in authentication state
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // Display the user's information
+                const userInfo = document.getElementById("user-info");
+                userInfo.innerHTML = `<p>Name: ${user.displayName}</p><p>Email: ${user.email}</p>`;
+            } else {
+                // If the user is not authenticated, redirect to the login page
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+</body>
+</html>
+SUBSCRIBE SHANMUKH SAI GAMING
